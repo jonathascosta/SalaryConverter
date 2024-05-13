@@ -5,16 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Conversion Table</title>
     <style>
-        table, th, td {
-            border: 1px solid black;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        table {
+            width: 80%;
+            margin: 20px 0;
             border-collapse: collapse;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         th, td {
-            padding: 10px;
+            padding: 15px;
             text-align: center;
         }
-        input {
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        td {
+            background-color: #ffffff;
+        }
+        td input {
             width: 100px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
         }
     </style>
 </head>
