@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Conversion Table</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        input {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table id="conversionTable">
+        <thead>
+            <tr>
+                <th>Period</th>
+                <th>BRL</th>
+                <th>USD</th>
+                <th>EUR</th>
+                <th>GBP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hour</td>
+                <td><input type="text" data-period="hour" data-currency="BRL"></td>
+                <td><input type="text" data-period="hour" data-currency="USD"></td>
+                <td><input type="text" data-period="hour" data-currency="EUR"></td>
+                <td><input type="text" data-period="hour" data-currency="GBP"></td>
+            </tr>
+            <tr>
+                <td>Day</td>
+                <td><input type="text" data-period="day" data-currency="BRL"></td>
+                <td><input type="text" data-period="day" data-currency="USD"></td>
+                <td><input type="text" data-period="day" data-currency="EUR"></td>
+                <td><input type="text" data-period="day" data-currency="GBP"></td>
+            </tr>
+            <tr>
+                <td>Week</td>
+                <td><input type="text" data-period="week" data-currency="BRL"></td>
+                <td><input type="text" data-period="week" data-currency="USD"></td>
+                <td><input type="text" data-period="week" data-currency="EUR"></td>
+                <td><input type="text" data-period="week" data-currency="GBP"></td>
+            </tr>
+            <tr>
+                <td>Month</td>
+                <td><input type="text" data-period="month" data-currency="BRL"></td>
+                <td><input type="text" data-period="month" data-currency="USD"></td>
+                <td><input type="text" data-period="month" data-currency="EUR"></td>
+                <td><input type="text" data-period="month" data-currency="GBP"></td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td><input type="text" data-period="year" data-currency="BRL"></td>
+                <td><input type="text" data-period="year" data-currency="USD"></td>
+                <td><input type="text" data-period="year" data-currency="EUR"></td>
+                <td><input type="text" data-period="year" data-currency="GBP"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
