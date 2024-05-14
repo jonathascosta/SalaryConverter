@@ -107,7 +107,7 @@ class CurrencyConverter {
         infoHTML += `<li>1 EUR = ${this.rates.EUR.cotacaoVenda.toFixed(2)} BRL</li>`;
         infoHTML += `<li>1 GBP = ${this.rates.GBP.cotacaoVenda.toFixed(2)} BRL</li>`;
         infoHTML += `<li>1 USD = ${this.rates.USD.cotacaoVenda.toFixed(2)} BRL</li>`;
-        infoHTML += `<li>Exchange rates updated at ${this.rates.BRL.dataHoraCotacao}</li>`;
+        infoHTML += `<li>Exchange rates updated at ${this.rates.USD.dataHoraCotacao}</li>`;
         infoHTML += '</ul>';
         conversionInfo.innerHTML = infoHTML;
     }

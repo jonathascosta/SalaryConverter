@@ -9,8 +9,14 @@ body {
     height: 100vh;
 }
 
+#conversionTableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
 table {
-    width: 80%;
+    width: 100%;
+    max-width: 1200px;
     margin: 20px 0;
     border-collapse: collapse;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -33,7 +39,7 @@ thead th {
 }
 
 td input {
-    width: 120px;
+    width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -61,4 +67,29 @@ footer {
     text-align: left;
     font-size: 0.9em;
     color: #333;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    th, td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    td input {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    th, td {
+        padding: 5px;
+        font-size: 0.8em;
+    }
+
+    td input {
+        padding: 5px;
+        font-size: 0.8em;
+    }
 }
