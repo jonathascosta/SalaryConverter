@@ -6,7 +6,7 @@ class CurrencyConverter {
             "EUR": 0.93,
             "GBP": 0.80
         };
-        this.cacheDuration = 60 * 60 * 1000; // 1 hora em milissegundos
+        this.cacheDuration = 60 * 60 * 1000;
         this.periods = {
             'hour': 1,
             'day': 8,
@@ -17,7 +17,7 @@ class CurrencyConverter {
         this.currencyLocales = {
             'BRL': 'pt-BR',
             'USD': 'en-US',
-            'EUR': 'de-DE',  // Alemanha
+            'EUR': 'de-DE',
             'GBP': 'en-GB'
         };
         this.initialize();
