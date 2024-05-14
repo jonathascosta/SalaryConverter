@@ -2,6 +2,8 @@
 
 This project provides a currency conversion table that allows users to input salaries in different currencies and time periods (hour, day, week, month, year) and automatically calculate conversions. The application uses current exchange rates and includes a responsive design for various screen sizes.
 
+![Screenshot](screenshot.png)
+
 ## Features
 
 - Convert salaries across multiple currencies (BRL, USD, EUR, GBP)
