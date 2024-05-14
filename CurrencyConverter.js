@@ -32,14 +32,23 @@ class CurrencyConverter {
     initializeEventListeners() {
         const inputs = document.querySelectorAll('input');
         inputs.forEach(input => {
+            input.addEventListener('focus', (e) => this.handleFocus(e.target));
             input.addEventListener('blur', (e) => this.handleInput(e.target));
         });
+    }
+
+    handleFocus(input) {
+        // Remove o símbolo de moeda e formata para o formato americano
+        const value = parseFloat(input.value.replace(/[^\d.,-]/g, '').replace(',', '.'));
+        if (!isNaN(value)) {
+            input.value = value.toString();
+        }
     }
 
     handleInput(input) {
         const period = input.dataset.period;
         const currency = input.dataset.currency;
-        const value = parseFloat(input.value.replace(/[^0-9.-]+/g, ""));
+        const value = parseFloat(input.value.replace(/[^\d.-]/g, ''));
         if (isNaN(value)) return;
 
         this.calculateColumn(currency, period, value);
@@ -69,12 +78,10 @@ class CurrencyConverter {
             }
         }
 
-        // Obter a taxa de câmbio de BRL para a moeda base
         const baseToBRL = this.rates[baseCurrency].cotacaoVenda;
 
         for (let currency in this.rates) {
             if (currency !== baseCurrency) {
-                // Taxa de BRL para a moeda de destino
                 const targetRate = this.rates[currency].cotacaoVenda;
 
                 for (let key in this.periods) {
