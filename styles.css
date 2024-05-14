@@ -20,15 +20,15 @@ th, td {
     padding: 20px;
     text-align: center;
     font-size: 1.1em;
-    border-right: 1px dotted #ccc;
+    border-right: 1px dotted #ccc; /* Linha pontilhada vertical */
 }
 
 th:last-child, td:last-child {
-    border-right: none; 
+    border-right: none; /* Remove a borda da última coluna */
 }
 
 thead th {
-    background-color: #6c757d;
+    background-color: #6c757d; /* Cinza escuro */
     color: white;
 }
 
@@ -48,9 +48,17 @@ td input {
 }
 
 tbody tr:nth-child(odd) {
-    background-color: rgba(211, 211, 211, 0.6);
+    background-color: rgba(211, 211, 211, 0.6); /* Cinza claro */
 }
 
 tbody tr:nth-child(even) {
-    background-color: rgba(211, 211, 211, 0.8);
+    background-color: rgba(211, 211, 211, 0.8); /* Cinza claro */
+}
+
+footer {
+    margin-top: 20px;
+    width: 80%;
+    text-align: left;
+    font-size: 0.9em;
+    color: #333;
 }
