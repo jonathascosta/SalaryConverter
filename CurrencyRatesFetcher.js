@@ -24,15 +24,10 @@ export class CurrencyRatesFetcher {
         const endDate = new Date();
         const startDate = new Date(new Date().setDate(new Date().getDate() - 7));
         const rates = {};
-        rates.USD = { paridadeCompra: 1.0, paridadeVenda: 1.0, cotacaoCompra: 1.0, cotacaoVenda: 1.0 };
-
-        const eurRate = await this.getExchangeRate('EUR', startDate, endDate);
-        const gbpRate = await this.getExchangeRate('GBP', startDate, endDate);
-        const brlRate = await this.getExchangeRate('USD', startDate, endDate);
-
-        rates.EUR = eurRate;
-        rates.GBP = gbpRate;
-        rates.BRL = brlRate;
+        rates.BRL = { paridadeCompra: 1.0, paridadeVenda: 1.0, cotacaoCompra: 1.0, cotacaoVenda: 1.0 };
+        rates.EUR = await this.getExchangeRate('EUR', startDate, endDate);
+        rates.GBP = await this.getExchangeRate('GBP', startDate, endDate);
+        rates.USD = await this.getExchangeRate('USD', startDate, endDate);
 
         return rates;
     }

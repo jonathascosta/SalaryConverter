@@ -1,76 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-2968705923738055">
     <title>Currency Conversion Table</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2968705923738055"
-        crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2968705923738055" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <table id="conversionTable">
-        <thead>
-            <tr>
-                <th>Period</th>
-                <th>BRL</th>
-                <th>USD</th>
-                <th>EUR</th>
-                <th>GBP</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Hour</td>
-                <td><input type="text" data-period="hour" data-currency="BRL"></td>
-                <td><input type="text" data-period="hour" data-currency="USD"></td>
-                <td><input type="text" data-period="hour" data-currency="EUR"></td>
-                <td><input type="text" data-period="hour" data-currency="GBP"></td>
-            </tr>
-            <tr>
-                <td>Day</td>
-                <td><input type="text" data-period="day" data-currency="BRL"></td>
-                <td><input type="text" data-period="day" data-currency="USD"></td>
-                <td><input type="text" data-period="day" data-currency="EUR"></td>
-                <td><input type="text" data-period="day" data-currency="GBP"></td>
-            </tr>
-            <tr>
-                <td>Week</td>
-                <td><input type="text" data-period="week" data-currency="BRL"></td>
-                <td><input type="text" data-period="week" data-currency="USD"></td>
-                <td><input type="text" data-period="week" data-currency="EUR"></td>
-                <td><input type="text" data-period="week" data-currency="GBP"></td>
-            </tr>
-            <tr>
-                <td>Month</td>
-                <td><input type="text" data-period="month" data-currency="BRL"></td>
-                <td><input type="text" data-period="month" data-currency="USD"></td>
-                <td><input type="text" data-period="month" data-currency="EUR"></td>
-                <td><input type="text" data-period="month" data-currency="GBP"></td>
-            </tr>
-            <tr>
-                <td>Year</td>
-                <td><input type="text" data-period="year" data-currency="BRL"></td>
-                <td><input type="text" data-period="year" data-currency="USD"></td>
-                <td><input type="text" data-period="year" data-currency="EUR"></td>
-                <td><input type="text" data-period="year" data-currency="GBP"></td>
-            </tr>
-        </tbody>
-    </table>
+
+    <div id="conversionTableContainer"></div>
 
     <footer>
         <div id="conversionInfo"></div>
     </footer>
 
     <div class="ad-container">
-        <script async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2968705923738055"
-            crossorigin="anonymous"></script>
-        <!-- Footer -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2968705923738055" crossorigin="anonymous"></script>
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2968705923738055"
             data-ad-slot="8348570092" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
@@ -80,5 +27,4 @@
 
     <script type="module" src="CurrencyConverter.js"></script>
 </body>
-
 </html>
