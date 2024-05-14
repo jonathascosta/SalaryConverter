@@ -41,7 +41,7 @@ We use cookies and similar technologies, including those from third parties like
 - **Develop and improve services**: Improving services based on user interaction.
 - **Use limited data to select content**: Showing relevant content based on limited data.
 
-For more information, please refer to our [Privacy Policy](https://jonathas.net/privacy-policy.html).
+For more information, please refer to our [Privacy Policy](https://salary-converter.jonathas.net/privacy-policy.html).
 
 ## Contact
 
