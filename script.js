@@ -1,9 +1,12 @@
 class CurrencyConverter {
     constructor() {
-        this.apiKey = 'fccea0316b0c44a29474b7e041a2b146';
-        this.apiUrl = `https://openexchangerates.org/api/latest.json?app_id=${this.apiKey}`;
-        this.rates = {};
-        this.cacheDuration = 60 * 60 * 1000;
+        this.rates = {
+            "USD": 1.0,
+            "BRL": 5.16,
+            "EUR": 0.93,
+            "GBP": 0.80
+        };
+        this.cacheDuration = 60 * 60 * 1000; // 1 hora em milissegundos
         this.periods = {
             'hour': 1,
             'day': 8,
@@ -14,54 +17,14 @@ class CurrencyConverter {
         this.currencyLocales = {
             'BRL': 'pt-BR',
             'USD': 'en-US',
-            'EUR': 'de-DE',
+            'EUR': 'de-DE',  // Alemanha
             'GBP': 'en-GB'
         };
         this.initialize();
     }
 
-    async initialize() {
-        const cachedRates = this.getCachedRates();
-        if (cachedRates) {
-            this.rates = cachedRates;
-            this.initializeEventListeners();
-        } else {
-            await this.fetchRates();
-        }
-    }
-
-    getCachedRates() {
-        const cachedData = localStorage.getItem('exchangeRates');
-        if (cachedData) {
-            const parsedData = JSON.parse(cachedData);
-            const now = new Date().getTime();
-            if (now - parsedData.timestamp < this.cacheDuration) {
-                return parsedData.rates;
-            } else {
-                localStorage.removeItem('exchangeRates');
-            }
-        }
-        return null;
-    }
-
-    cacheRates(rates) {
-        const data = {
-            rates: rates,
-            timestamp: new Date().getTime()
-        };
-        localStorage.setItem('exchangeRates', JSON.stringify(data));
-    }
-
-    async fetchRates() {
-        try {
-            const response = await fetch(this.apiUrl);
-            const data = await response.json();
-            this.rates = data.rates;
-            this.cacheRates(this.rates);
-            this.initializeEventListeners();
-        } catch (error) {
-            console.error('Error fetching exchange rates:', error);
-        }
+    initialize() {
+        this.initializeEventListeners();
     }
 
     initializeEventListeners() {
