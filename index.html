@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Conversion Table</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2968705923738055"
-        crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2968705923738055" crossorigin="anonymous"></script>
 </head>
-
 <body>
+
+    <h1 class="title">Currency Conversion Table</h1>
 
     <div id="conversionTableContainer"></div>
 
-    <footer>
-        <div id="conversionInfo"></div>
-    </footer>
+    <div class="footer-container">
+        <footer>
+            <h3>Conversion Info</h3>
+            <ul id="conversionInfo"></ul>
+        </footer>
+
+        <div class="time-info">
+            <h3>Time Settings</h3>
+            <ul>
+                <li>1 day = 8 hours</li>
+                <li>1 week = 5 days</li>
+                <li>1 month = 20 days</li>
+                <li>1 year = 12 months</li>
+            </ul>
+        </div>
+    </div>
 
     <div class="ad-container">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2968705923738055"
@@ -29,5 +41,4 @@
 
     <script type="module" src="CurrencyConverter.js"></script>
 </body>
-
 </html>

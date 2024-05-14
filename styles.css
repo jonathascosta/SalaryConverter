@@ -5,17 +5,25 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* Alinha tudo à esquerda */
+    padding-left: 20px; /* Adiciona uma margem esquerda */
+}
+
+.title {
+    font-size: 2.5em;
+    margin: 20px 0;
+    text-align: left;
+    color: #6c757d;
 }
 
 #conversionTableContainer {
     width: 100%;
     overflow-x: auto;
+    margin-top: 20px;
 }
 
 table {
-    width: 100%;
+    width: calc(100% - 40px); /* Adapta a largura da tabela para incluir margem */
     max-width: 1200px;
     margin: 20px 0;
     border-collapse: collapse;
@@ -61,12 +69,42 @@ tbody tr:nth-child(even) {
     background-color: rgba(211, 211, 211, 0.8); /* Cinza claro */
 }
 
-footer {
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Distribui o espaço entre os itens */
     margin-top: 20px;
-    width: 80%;
-    text-align: left;
-    font-size: 0.9em;
+    width: calc(100% - 40px); /* Adapta a largura do rodapé e info temporal para incluir margem */
+}
+
+footer, .time-info {
+    flex: 1;
+}
+
+footer h3, .time-info h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #6c757d;
+}
+
+footer ul, .time-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer li, .time-info li {
+    font-size: 1em;
+    line-height: 1.5em;
     color: #333;
+}
+
+footer {
+    text-align: left;
+}
+
+.time-info {
+    padding-left: 20px;
+    border-left: 1px solid #ccc;
 }
 
 /* Responsivo */
@@ -80,6 +118,22 @@ footer {
         padding: 5px;
         font-size: 0.9em;
     }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .time-info {
+        border-left: none;
+        border-top: 1px solid #ccc;
+        padding-left: 0;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -91,5 +145,21 @@ footer {
     td input {
         padding: 5px;
         font-size: 0.8em;
+    }
+
+    .title {
+        font-size: 1.5em;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .time-info {
+        border-left: none;
+        border-top: 1px solid #ccc;
+        padding-left: 0;
+        padding-top: 20px;
+        margin-top: 20px;
     }
 }

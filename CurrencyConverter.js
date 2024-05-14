@@ -102,14 +102,18 @@ class CurrencyConverter {
 
     displayConversionInfo() {
         const conversionInfo = document.getElementById('conversionInfo');
-        let infoHTML = '<h3>Conversion Info</h3>';
-        infoHTML += '<ul>';
-        infoHTML += `<li>1 EUR = ${this.rates.EUR.cotacaoVenda.toFixed(2)} BRL</li>`;
-        infoHTML += `<li>1 GBP = ${this.rates.GBP.cotacaoVenda.toFixed(2)} BRL</li>`;
-        infoHTML += `<li>1 USD = ${this.rates.USD.cotacaoVenda.toFixed(2)} BRL</li>`;
-        infoHTML += `<li>Exchange rates updated at ${this.rates.USD.dataHoraCotacao}</li>`;
-        infoHTML += '</ul>';
-        conversionInfo.innerHTML = infoHTML;
+        conversionInfo.innerHTML = '';
+        const infoList = [
+            `1 EUR = ${this.rates.EUR.cotacaoVenda.toFixed(2)} BRL`,
+            `1 GBP = ${this.rates.GBP.cotacaoVenda.toFixed(2)} BRL`,
+            `1 USD = ${this.rates.USD.cotacaoVenda.toFixed(2)} BRL`,
+            `Exchange rates updated at ${this.rates.USD.dataHoraCotacao} BRT`
+        ];
+        infoList.forEach(info => {
+            const li = document.createElement('li');
+            li.textContent = info;
+            conversionInfo.appendChild(li);
+        });
     }
 }
 
