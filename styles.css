@@ -1,0 +1,56 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+table {
+    width: 80%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1em;
+    border-right: 1px dotted #ccc; /* Linha pontilhada vertical */
+}
+
+th:last-child, td:last-child {
+    border-right: none; /* Remove a borda da última coluna */
+}
+
+thead th {
+    background-color: #6c757d; /* Cinza escuro */
+    color: white;
+}
+
+td input {
+    width: 120px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+    background-color: inherit;
+}
+
+.ad-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(211, 211, 211, 0.6); /* Cinza claro */
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(211, 211, 211, 0.8); /* Cinza claro */
+}
