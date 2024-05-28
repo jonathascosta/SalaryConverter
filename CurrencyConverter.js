@@ -38,10 +38,12 @@ class CurrencyConverter {
     }
 
     handleFocus(input) {
-        // Remove o símbolo de moeda e formata para o formato americano
-        const value = parseFloat(input.value.replace(/[^\d.,-]/g, '').replace(',', '.'));
-        if (!isNaN(value)) {
-            input.value = value.toString();
+        let value = input.value.replace(/[^\d]/g, '');
+        if (value) {
+            const floatValue = parseFloat(value) / 100;
+            if (!isNaN(floatValue)) {
+                input.value = floatValue.toFixed(2);
+            }
         }
     }
 
