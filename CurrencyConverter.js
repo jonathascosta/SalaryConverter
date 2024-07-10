@@ -1,17 +1,20 @@
 import { CurrencyRatesFetcher } from './CurrencyRatesFetcher.js';
 import { ConversionTableBuilder } from './ConversionTableBuilder.js';
+import { PeriodConverter } from './PeriodConverter.js';
 
 class CurrencyConverter {
     constructor() {
+        this.equivalences = {
+            'day': '8h',
+            'week': '5d',
+            'month': '20d',
+            'year': '12m'
+        };
+        this.converter = new PeriodConverter(this.equivalences);
+        this.periods = this.converter.convertToHours();
+        
         this.fetcher = new CurrencyRatesFetcher();
         this.currencies = ['BRL', 'USD', 'EUR', 'GBP'];
-        this.periods = {
-            'hour': 1,
-            'day': 8,
-            'week': 8 * 5,
-            'month': 8 * 20,
-            'year': 8 * 20 * 12
-        };
         this.rates = {};
         this.currencyLocales = {
             'BRL': 'pt-BR',
@@ -19,6 +22,7 @@ class CurrencyConverter {
             'EUR': 'de-DE',
             'GBP': 'en-GB'
         };
+        
         this.initialize();
     }
 
