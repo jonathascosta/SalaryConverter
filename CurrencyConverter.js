@@ -4,12 +4,7 @@ import { PeriodConverter } from './PeriodConverter.js';
 
 class CurrencyConverter {
     constructor() {
-        this.equivalences = {
-            'day': '8h',
-            'week': '5d',
-            'month': '20d',
-            'year': '12m'
-        };
+        this.equivalences = this.loadEquivalences();
         this.converter = new PeriodConverter(this.equivalences);
         this.periods = this.converter.convertToHours();
         
@@ -26,6 +21,21 @@ class CurrencyConverter {
         this.initialize();
     }
 
+    loadEquivalences() {
+        const defaultEquivalences = {
+            'day': '8h',
+            'week': '5d',
+            'month': '20d',
+            'year': '12m'
+        };
+        const savedEquivalences = JSON.parse(localStorage.getItem('equivalences'));
+        return savedEquivalences ? { ...defaultEquivalences, ...savedEquivalences } : defaultEquivalences;
+    }
+
+    saveEquivalences() {
+        localStorage.setItem('equivalences', JSON.stringify(this.equivalences));
+    }
+
     async initialize() {
         new ConversionTableBuilder('conversionTableContainer', this.currencies, Object.keys(this.periods));
         this.rates = await this.fetcher.getLatestRates();
@@ -34,11 +44,43 @@ class CurrencyConverter {
     }
 
     initializeEventListeners() {
-        const inputs = document.querySelectorAll('input');
+        const inputs = document.querySelectorAll('input.equivalence');
         inputs.forEach(input => {
-            input.addEventListener('focus', (e) => this.handleFocus(e.target));
-            input.addEventListener('blur', (e) => this.handleInput(e.target));
+            input.value = this.equivalences[input.dataset.period] || '';
+            input.addEventListener('change', (e) => this.handleEquivalenceChange(e.target));
         });
+
+        const currencyInputs = document.querySelectorAll('td input');
+        currencyInputs.forEach(input => {
+            input.addEventListener('focus', (e) => this.handleFocus(e.target));
+            input.addEventListener('blur', (e) => this.handleBlur(e.target));
+        });
+    }
+
+    handleEquivalenceChange(input) {
+        const period = input.dataset.period;
+        const value = input.value;
+        if (this.isValidPeriodDescription(value)) {
+            this.equivalences[period] = value;
+            this.converter = new PeriodConverter(this.equivalences);
+            this.periods = this.converter.convertToHours();
+            this.saveEquivalences();
+            this.refresh();
+        } else {
+            alert(`Invalid value for ${period}: ${value}`);
+            input.value = this.equivalences[period]; // Reset to last valid value
+        }
+    }
+
+    isValidPeriodDescription(description) {
+        const match = description.match(/^\d+(\.\d+)?[hdwm]$/);
+        return match !== null;
+    }
+
+    refresh() {
+        let input = document.querySelector("#conversionTable > tbody > tr:nth-child(1) > td:nth-child(2) > input[type=text]");
+        handleFocus(input);
+        handleBlur(input);
     }
 
     handleFocus(input) {
@@ -51,7 +93,7 @@ class CurrencyConverter {
         }
     }
 
-    handleInput(input) {
+    handleBlur(input) {
         const period = input.dataset.period;
         const currency = input.dataset.currency;
         const value = parseFloat(input.value.replace(/[^\d.-]/g, ''));
@@ -102,7 +144,7 @@ class CurrencyConverter {
     }
 
     formatInputs() {
-        const inputs = document.querySelectorAll('input');
+        const inputs = document.querySelectorAll('td input');
         inputs.forEach(input => {
             const value = parseFloat(input.value);
             const currency = input.dataset.currency;
