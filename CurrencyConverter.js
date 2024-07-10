@@ -79,8 +79,8 @@ class CurrencyConverter {
 
     refresh() {
         let input = document.querySelector("#conversionTable > tbody > tr:nth-child(1) > td:nth-child(2) > input[type=text]");
-        handleFocus(input);
-        handleBlur(input);
+        this.handleFocus(input);
+        this.handleBlur(input);
     }
 
     handleFocus(input) {
