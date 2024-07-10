@@ -1,4 +1,4 @@
-class PeriodConverter {
+export class PeriodConverter {
     constructor(equivalences) {
         this.defaultEquivalences = {
             'hour': '1h',
