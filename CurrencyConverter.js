@@ -83,6 +83,24 @@ class CurrencyConverter {
         this.handleBlur(input);
     }
 
+    handleEquivalenceChange(input) {
+        const period = input.dataset.period;
+        const value = input.value;
+        if (this.isValidPeriodDescription(value)) {
+            this.equivalences[period] = value;
+            this.converter = new PeriodConverter(this.equivalences);
+            this.periods = this.converter.convertToHours();
+            this.saveEquivalences();
+        } else {
+            alert(`Invalid value for ${period}: ${value}`);
+        }
+    }
+
+    isValidPeriodDescription(description) {
+        const match = description.match(/^\d+(\.\d+)?[hdwm]$/);
+        return match !== null;
+    }
+
     handleFocus(input) {
         let value = input.value.replace(/[^\d]/g, '');
         if (value) {
