@@ -68,7 +68,7 @@ class CurrencyConverter {
             this.refresh();
         } else {
             alert(`Invalid value for ${period}: ${value}`);
-            input.value = this.equivalences[period]; // Reset to last valid value
+            input.value = this.equivalences[period];
         }
     }
 
@@ -81,24 +81,6 @@ class CurrencyConverter {
         let input = document.querySelector("#conversionTable > tbody > tr:nth-child(1) > td:nth-child(2) > input[type=text]");
         this.handleFocus(input);
         this.handleBlur(input);
-    }
-
-    handleEquivalenceChange(input) {
-        const period = input.dataset.period;
-        const value = input.value;
-        if (this.isValidPeriodDescription(value)) {
-            this.equivalences[period] = value;
-            this.converter = new PeriodConverter(this.equivalences);
-            this.periods = this.converter.convertToHours();
-            this.saveEquivalences();
-        } else {
-            alert(`Invalid value for ${period}: ${value}`);
-        }
-    }
-
-    isValidPeriodDescription(description) {
-        const match = description.match(/^\d+(\.\d+)?[hdwm]$/);
-        return match !== null;
     }
 
     handleFocus(input) {
