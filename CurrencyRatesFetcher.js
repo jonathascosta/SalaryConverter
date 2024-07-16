@@ -17,7 +17,7 @@ export class CurrencyRatesFetcher {
         const url = `${this.apiBaseUrl}(moeda=@moeda,dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@moeda='${moeda}'&@dataInicial='${formattedStartDate}'&@dataFinalCotacao='${formattedEndDate}'&$top=100&$skip=0&$format=json&$select=paridadeCompra,paridadeVenda,cotacaoCompra,cotacaoVenda,dataHoraCotacao`;
         const response = await fetch(url);
         const data = await response.json();
-        return data.value[data.value.length - 1]; // Assume usar a última cotação
+        return data.value[data.value.length - 1];
     }
 
     async getLatestRates() {

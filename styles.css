@@ -5,8 +5,8 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha tudo à esquerda */
-    padding-left: 20px; /* Adiciona uma margem esquerda */
+    align-items: flex-start;
+    padding-left: 20px; 
 }
 
 .title {
@@ -23,8 +23,8 @@ body {
 }
 
 table {
-    width: calc(100% - 40px); /* Adapta a largura da tabela para incluir margem */
-    max-width: 1200px;
+    width: calc(100% - 40px);
+    max-width: 1000px;
     margin: 20px 0;
     border-collapse: collapse;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -34,15 +34,15 @@ th, td {
     padding: 20px;
     text-align: center;
     font-size: 1.1em;
-    border-right: 1px dotted #ccc; /* Linha pontilhada vertical */
+    border-right: 1px dotted #ccc;
 }
 
 th:last-child, td:last-child {
-    border-right: none; /* Remove a borda da última coluna */
+    border-right: none; 
 }
 
 thead th {
-    background-color: #6c757d; /* Cinza escuro */
+    background-color: #6c757d;
     color: white;
 }
 
@@ -62,19 +62,20 @@ td input {
 }
 
 tbody tr:nth-child(odd) {
-    background-color: rgba(211, 211, 211, 0.6); /* Cinza claro */
+    background-color: rgba(211, 211, 211, 0.6); 
 }
 
 tbody tr:nth-child(even) {
-    background-color: rgba(211, 211, 211, 0.8); /* Cinza claro */
+    background-color: rgba(211, 211, 211, 0.8);
 }
 
 .footer-container {
     display: flex;
+    max-width: 1000px;
     flex-direction: row;
-    justify-content: space-between; /* Distribui o espaço entre os itens */
+    justify-content: space-between; 
     margin-top: 20px;
-    width: calc(100% - 40px); /* Adapta a largura do rodapé e info temporal para incluir margem */
+    width: calc(100% - 40px); 
 }
 
 footer, .time-info {
@@ -114,7 +115,27 @@ footer {
     font-family: 'Roboto';
 }
 
-/* Responsivo */
+#conversionTableAndAdContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.ad-vertical {
+    margin-left: 20px;
+    width: 332px;
+    height: 664px;
+    flex-shrink: 0;
+}
+
+.ad-horizontal {
+    margin-top: 20px;
+    width: 760px;
+    height: 154px;
+}
+
 @media (max-width: 768px) {
     th, td {
         padding: 10px;
