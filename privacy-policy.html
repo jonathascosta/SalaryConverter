@@ -1,62 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Privacy Policy</h1>
-    <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website. By using our website, you agree to the terms of this Privacy Policy.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy policy · Salary Converter</title>
+    <meta
+      name="description"
+      content="What the Salary Converter stores, what it sends where, and how Google AdSense uses cookies on it."
+    />
+    <link rel="canonical" href="https://salary-converter.jonathas.net/privacy-policy.html" />
+    <meta name="author" content="Jonathas Costa" />
 
-    <h2>Data We Collect</h2>
-    <p>We may collect the following types of information:</p>
-    <ul>
-        <li><strong>Cookies and Tracking Technologies</strong>: We use cookies and similar technologies to store and access information on your device. This helps us recognize your device and provide personalized content and ads.</li>
-        <li><strong>Usage Data</strong>: Information about your interactions with our website, such as pages visited, time spent on the site, and other usage statistics.</li>
-    </ul>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f0f0e" media="(prefers-color-scheme: dark)" />
+    <script>
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.dataset.theme = theme;
+          for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+            meta.setAttribute('content', theme === 'dark' ? '#0f0f0e' : '#faf9f6');
+          }
+        }
+      } catch {}
+    </script>
 
-    <h2>How We Use Your Data</h2>
-    <p>We use your data for the following purposes:</p>
+    <!-- The AdSense script also shows Google's consent message, so visitors can review their choices here too. -->
+    <meta name="google-adsense-account" content="ca-pub-2968705923738055" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2968705923738055"
+      crossorigin="anonymous"
+    ></script>
 
-    <h3>Purposes Requiring Consent</h3>
-    <ul>
-        <li><strong>Store and/or access information on a device</strong>: Storing and accessing cookies and similar identifiers to recognize your device.</li>
-        <li><strong>Create profiles for personalised advertising</strong>: Creating profiles to show personalized ads based on your interests.</li>
-        <li><strong>Use profiles to select personalised advertising</strong>: Using profiles to select personalized ads that match your interests.</li>
-        <li><strong>Create profiles to personalise content</strong>: Creating profiles to personalize the content you see based on your interests.</li>
-        <li><strong>Use profiles to select personalised content</strong>: Using profiles to select personalized content that matches your interests.</li>
-    </ul>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <h3>Purposes Based on Legitimate Interest</h3>
-    <ul>
-        <li><strong>Use limited data to select advertising</strong>: Showing relevant ads based on limited data such as device type and location.</li>
-        <li><strong>Measure advertising performance</strong>: Evaluating the effectiveness of our advertising campaigns.</li>
-        <li><strong>Measure content performance</strong>: Evaluating the effectiveness of the content displayed on our website.</li>
-        <li><strong>Develop and improve services</strong>: Improving our services based on user interactions and feedback.</li>
-        <li><strong>Use limited data to select content</strong>: Showing relevant content based on limited data such as the website or app you are using.</li>
-    </ul>
+    <script type="module" src="/src/privacy.ts"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href="https://www.jonathas.net/">jonathas<span>.net</span></a>
+        <span class="crumb" aria-hidden="true">/</span>
+        <a class="app-title" href="/">Salary Converter</a>
+        <div class="header-actions">
+          <button
+            class="icon-button theme-toggle"
+            type="button"
+            aria-label="Dark theme"
+            aria-pressed="false"
+            title="Toggle dark theme"
+            data-theme-toggle
+          >
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
 
-    <h2>Third-Party Services</h2>
-    <p>We use third-party services such as Google AdSense to provide personalized ads. These third parties may collect and use information about your interactions with our website and other websites to provide ads that are more relevant to you.</p>
+    <main class="container page">
+      <article class="prose">
+        <p class="eyebrow">Salary Converter</p>
+        <h1 class="display">Privacy policy</h1>
+        <p class="updated">Last updated 28 September 2026</p>
 
-    <h2>Your Rights</h2>
-    <p>You have the following rights regarding your personal data:</p>
-    <ul>
-        <li><strong>Access</strong>: You have the right to request access to the personal data we hold about you.</li>
-        <li><strong>Correction</strong>: You have the right to request correction of any inaccurate personal data we hold about you.</li>
-        <li><strong>Deletion</strong>: You have the right to request the deletion of your personal data.</li>
-        <li><strong>Objection</strong>: You have the right to object to the processing of your personal data for certain purposes, such as direct marketing.</li>
-        <li><strong>Withdrawal of Consent</strong>: If you have given consent for the processing of your personal data, you have the right to withdraw your consent at any time.</li>
-    </ul>
+        <p>
+          This policy covers <strong>salary-converter.jonathas.net</strong>, run by Jonathas Costa from Porto,
+          Portugal. For any question about it, write to
+          <a href="mailto:bee.pumice566@eagereverest.com">bee.pumice566@eagereverest.com</a>.
+        </p>
 
-    <h2>How to Contact Us</h2>
-    <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
-    <p>Jonathas Costa<br>Email: bee.pumice566@eagereverest.com</p>
+        <h2>The short version</h2>
+        <ul>
+          <li>The converter runs in your browser. The amounts you type are not sent to me or anyone else.</li>
+          <li>There are no analytics or tracking scripts of my own.</li>
+          <li>The site shows ads from Google AdSense, which can use cookies. Where the law requires it, Google asks for your consent first.</li>
+        </ul>
 
-    <h2>Changes to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website. You are advised to review this Privacy Policy periodically for any changes.</p>
-    <p>Effective Date: 2024-05-14</p>
-</body>
+        <h2>What stays in your browser</h2>
+        <p>
+          To pick up where you left off, the site keeps your last amount, your working-time settings, your theme and
+          the latest exchange rates in your browser’s local storage. This data never leaves your device. Clearing the
+          site’s data in your browser deletes it.
+        </p>
+        <p>
+          The address bar holds the amount and settings on screen, so you can share them. The link carries whatever it
+          shows, so share it only with people you want to see it.
+        </p>
+
+        <h2>Who else is involved</h2>
+        <ul>
+          <li>
+            <strong>Central Bank of Brazil.</strong> Your browser downloads the exchange rates from the Central Bank’s
+            public API (olinda.bcb.gov.br). As with any web request, the Central Bank receives your IP address; nothing
+            you type is sent.
+          </li>
+          <li>
+            <strong>GitHub Pages</strong> hosts the site and may log visitors’ IP addresses for security. See the
+            <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub
+            privacy statement</a>.
+          </li>
+          <li>
+            <strong>Fonts</strong> are served by the site itself: there are no requests to Google Fonts or other font
+            services.
+          </li>
+        </ul>
+
+        <h2>Advertising and cookies</h2>
+        <p>
+          The site uses Google AdSense to show ads. Third-party vendors, including Google, use cookies to serve ads
+          based on a user’s prior visits to this website or other websites. Google’s use of advertising cookies enables
+          it and its partners to serve ads to users based on their visit to this site and/or other sites on the
+          Internet.
+        </p>
+        <p>
+          If you are in the European Economic Area, the United Kingdom or Switzerland, Google’s consent message asks for
+          your choices before cookies are used for ads, and lets you change them at any time through its privacy and
+          cookie settings link. If you don’t consent to personalised ads, Google can still show non-personalised ads,
+          which use cookies or similar technologies only for purposes such as limiting how often you see an ad,
+          aggregated reporting and fighting fraud, or none at all, depending on your choices.
+        </p>
+        <p>You can also:</p>
+        <ul>
+          <li>
+            opt out of personalised advertising in Google’s <a href="https://adssettings.google.com">Ads Settings</a>;
+          </li>
+          <li>
+            opt out of other vendors’ use of cookies for personalised advertising at
+            <a href="https://www.youronlinechoices.eu">youronlinechoices.eu</a> or
+            <a href="https://optout.aboutads.info">aboutads.info</a>;
+          </li>
+          <li>
+            read <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from
+            sites that use its services</a>.
+          </li>
+        </ul>
+
+        <h2>Your rights</h2>
+        <p>
+          Under the GDPR you can ask to access, correct or delete personal data about you, object to its use, and
+          withdraw consent at any time. The site itself holds no personal data about you: what it stores stays in your
+          browser. For data used by Google to show ads, use the controls above or Google’s own privacy tools. You can
+          also complain to the Portuguese data protection authority,
+          <a href="https://www.cnpd.pt">CNPD</a>.
+        </p>
+
+        <h2>Changes</h2>
+        <p>If this policy changes, the date at the top changes with it.</p>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year">2026</span> Jonathas Costa · <a href="https://www.jonathas.net/">jonathas.net</a></p>
+        <p class="footer-links">
+          <a href="/">Salary Converter</a>
+          <a href="https://github.com/jonathascosta/salaryconverter">Source on GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
