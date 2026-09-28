@@ -1,0 +1,263 @@
+/* ==========================================================================
+   Design tokens, shared with jonathas.net.
+   Colours use light-dark(): the active scheme comes from `color-scheme`,
+   which follows the OS unless the player picks a theme (data-theme on <html>).
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: light-dark(#faf9f6, #0f0f0e);
+  --surface: light-dark(#ffffff, #171715);
+  --surface-2: light-dark(#f2f0eb, #1f1f1c);
+  --text: light-dark(#1a1917, #edebe6);
+  --text-muted: light-dark(#57534b, #aaa59b);
+  --text-subtle: light-dark(#6f6a61, #918c82);
+  --border: light-dark(#e4e0d8, #2a2926);
+  --border-strong: light-dark(#cfc9bd, #3d3b37);
+  --accent: light-dark(#c2410c, #ff8a5b);
+  --accent-hover: light-dark(#9a3412, #ffab87);
+  --on-accent: light-dark(#ffffff, #1a1917);
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 12px 32px -16px rgb(0 0 0 / 0.18);
+
+  /* App colours: blueprint ink, and red for errors. */
+  --ink: light-dark(#1f4fa8, #8db4ff);
+  --danger: light-dark(#b42318, #ff7b72);
+
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-height: 3.5rem;
+  --radius: 1rem;
+  --radius-sm: 0.5rem;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/* Browsers without light-dark() get the light palette. */
+@supports not (color: light-dark(#000, #fff)) {
+  :root {
+    color-scheme: light;
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --surface-2: #f2f0eb;
+    --text: #1a1917;
+    --text-muted: #57534b;
+    --text-subtle: #6f6a61;
+    --border: #e4e0d8;
+    --border-strong: #cfc9bd;
+    --accent: #c2410c;
+    --accent-hover: #9a3412;
+    --on-accent: #ffffff;
+    --ink: #1f4fa8;
+    --danger: #b42318;
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: inherit;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  display: block;
+  flex: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Shared components
+   ========================================================================== */
+
+.container {
+  width: min(100% - 2 * var(--gutter), var(--app-width));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+}
+
+.display em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 560;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+
+.button-primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.button-primary:hover {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.button-secondary {
+  border-color: var(--border-strong);
+  background: transparent;
+  color: var(--text);
+}
+
+.button-secondary:hover {
+  border-color: var(--text);
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    color 0.2s var(--ease),
+    background-color 0.2s var(--ease);
+}
+
+.icon-button:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
