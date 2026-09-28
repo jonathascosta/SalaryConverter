@@ -315,9 +315,10 @@ function announce(message: string): void {
   requestAnimationFrame(() => (announcer.textContent = message));
 }
 
-// Phones get the share sheet; elsewhere the link goes to the clipboard.
+// Phones get the share sheet; elsewhere, or when sharing isn't allowed, the link goes to the clipboard.
 const useShareSheet = 'share' in navigator && window.matchMedia('(pointer: coarse)').matches;
-shareLabel.textContent = useShareSheet ? 'Share' : 'Copy link';
+const shareText = useShareSheet ? 'Share' : 'Copy link';
+shareLabel.textContent = shareText;
 let shareTimer: ReturnType<typeof setTimeout> | undefined;
 
 shareButton.addEventListener('click', async () => {
@@ -325,10 +326,11 @@ shareButton.addEventListener('click', async () => {
   if (useShareSheet) {
     try {
       await navigator.share({ title: 'Salary Converter', url });
-    } catch {
-      // Closing the share sheet rejects too; nothing to do.
+      return;
+    } catch (error) {
+      // Closing the share sheet rejects with AbortError: nothing to do then.
+      if (error instanceof DOMException && error.name === 'AbortError') return;
     }
-    return;
   }
   try {
     await navigator.clipboard.writeText(url);
@@ -339,7 +341,7 @@ shareButton.addEventListener('click', async () => {
     history.replaceState(history.state, '', url);
   }
   clearTimeout(shareTimer);
-  shareTimer = setTimeout(() => (shareLabel.textContent = 'Copy link'), 2500);
+  shareTimer = setTimeout(() => (shareLabel.textContent = shareText), 2500);
 });
 
 // ---------------------------------------------------------------------------
